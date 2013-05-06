@@ -68,11 +68,6 @@
            [(nth scale-notes r) intv]))
        scale-notes))
 
-(defn random-beat [measures]
-  (let [vals '(2 1 0.5 .25)]
-    (let [b (rand-int (length vals))]
-
-
 ;; https://github.com/overtone/overtone/blob/8b60f2db204eac368b912a03b49fb5500eddb5ef/src/overtone/music/pitch.clj#L239
 ;; (def SCALE
 ;;   (let [ionian-sequence [2 2 1 2 2 2 1]
