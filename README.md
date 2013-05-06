@@ -1,10 +1,12 @@
 # tones
 
-A Clojure library designed to ... well, that part is up to you.
+1. clone the repo
 
-## Usage
+2. cd into the directory
 
-FIXME
+3. lein repl
+
+
 
 ## License
 
