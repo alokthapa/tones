@@ -99,7 +99,29 @@
 ;;(improv-on-beats (scale :c4 :major) (break-measure 4 4))
 
 ;;(play metro piano (random-scale-run (scale :c4 :mixolydian) 0.25))
-(play metro piano (improv-on-beats (scale :c4 :dorian) (break-measure 12 4)))
+
+;;(improv-on-beats (scale :c4 :major) (break-measure 4 4))
+
+
+
+;;(play metro piano (improv-on-beats (scale :c4 :dorian) (break-measure 12 4)))
+
+
+
+;solo on a tune ...
+
+
+(play metro piano (concat
+                   (improv-on-beats (scale :c4 :ionian)
+                                    (break-measure 4 4))
+                   (improv-on-beats (scale :f4 :lydian)
+                                    (break-measure 4 4))
+                   (improv-on-beats (scale :g4 :mixolydian)
+                                    (break-measure 4 4))
+                   (improv-on-beats (scale :c4 :ionian)
+                                    (break-measure 4 4))))
+
+
 
 
 
