@@ -68,6 +68,42 @@
            [(nth scale-notes r) intv]))
        scale-notes))
 
+
+(defn pick-rand [left]
+  (let* [b '( 1 0.5 0.5 0.25 0.25 )
+         r (rand-int (count b))
+         l (nth b r)]
+        (if (= left 0.25)
+          0.25
+          (if (> l left)
+            (pick-rand left)
+            l))))
+
+(defn rec-build [acc left]
+  (if (<= left 0)
+    acc
+    (let [rand (pick-rand left)]
+      (rec-build (cons rand acc)
+                 (- left rand)))))
+
+(defn break-measure [measures timing]
+  (rec-build (list)
+             (* measures timing)))
+
+(defn improv-on-beats [scale-notes beats]
+  (map (fn [n]
+         (let [r (rand-int (count scale-notes))]
+           [(nth scale-notes r) n]))
+       beats))
+
+
+;;(improv-on-beats (scale :c4 :major) (break-measure 4 4))
+
+
+;;(play metro piano (random-scale-run (scale :c4 :mixolydian) 0.25))
+(play metro2 piano (improv-on-beats (scale :c4 :major) (break-measure 4 4)))
+
+
 ;; https://github.com/overtone/overtone/blob/8b60f2db204eac368b912a03b49fb5500eddb5ef/src/overtone/music/pitch.clj#L239
 ;; (def SCALE
 ;;   (let [ionian-sequence [2 2 1 2 2 2 1]
@@ -158,5 +194,3 @@
 (defn  rotate-scale [scale-sequence offset]
                   (take (count scale-sequence)
                         (drop offset (cycle scale-sequence))))
-
-(play metro piano (random-scale-run (scale :c4 :mixolydian) 0.25))
