@@ -96,12 +96,11 @@
            [(nth scale-notes r) n]))
        beats))
 
-
 ;;(improv-on-beats (scale :c4 :major) (break-measure 4 4))
 
-
 ;;(play metro piano (random-scale-run (scale :c4 :mixolydian) 0.25))
-(play metro2 piano (improv-on-beats (scale :c4 :major) (break-measure 4 4)))
+(play metro piano (improv-on-beats (scale :c4 :dorian) (break-measure 12 4)))
+
 
 
 ;; https://github.com/overtone/overtone/blob/8b60f2db204eac368b912a03b49fb5500eddb5ef/src/overtone/music/pitch.clj#L239
