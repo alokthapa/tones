@@ -123,7 +123,7 @@
          (improv-on-beats (scale :g4 :mixolydian) common)
          (improv-on-beats (scale :g4 :mixolydian) common2)
          (improv-on-beats (scale :c4 :major) common)
-         (improv-on-beats (scale :c4 :majordian) common2))))
+         (improv-on-beats (scale :c4 :major) common2))))
 
 ;; https://github.com/overtone/overtone/blob/8b60f2db204eac368b912a03b49fb5500eddb5ef/src/overtone/music/pitch.clj#L239
 ;; (def SCALE
