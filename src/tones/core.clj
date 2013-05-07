@@ -1,6 +1,6 @@
 (ns tones.core)
-(use overtone.live)
-(use overtone.core)
+(use 'overtone.live)
+(use 'overtone.core)
 
 ;;load the piano
 (use 'overtone.inst.piano)
@@ -70,7 +70,7 @@
 
 
 (defn pick-rand [left]
-  (let* [b '( 1 0.5 0.5 0.25 0.25 )
+  (let* [b '(0.5  0.25 )
          r (rand-int (count b))
          l (nth b r)]
         (if (= left 0.25)
@@ -111,19 +111,19 @@
 ;solo on a tune ...
 
 
-(play metro piano (concat
-                   (improv-on-beats (scale :c4 :ionian)
-                                    (break-measure 4 4))
-                   (improv-on-beats (scale :f4 :lydian)
-                                    (break-measure 4 4))
-                   (improv-on-beats (scale :g4 :mixolydian)
-                                    (break-measure 4 4))
-                   (improv-on-beats (scale :c4 :ionian)
-                                    (break-measure 4 4))))
 
-
-
-
+(let
+    [common (break-measure 1 4)
+     common2 (break-measure 1 4)]
+  (play metro
+        piano
+        (concat
+         (improv-on-beats (scale :d4 :dorian) common)
+         (improv-on-beats (scale :d4 :dorian) common2)
+         (improv-on-beats (scale :g4 :mixolydian) common)
+         (improv-on-beats (scale :g4 :mixolydian) common2)
+         (improv-on-beats (scale :c4 :major) common)
+         (improv-on-beats (scale :c4 :majordian) common2))))
 
 ;; https://github.com/overtone/overtone/blob/8b60f2db204eac368b912a03b49fb5500eddb5ef/src/overtone/music/pitch.clj#L239
 ;; (def SCALE
